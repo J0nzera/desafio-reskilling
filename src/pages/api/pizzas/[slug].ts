@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { pizzas } from "@/features/pizzas/mock/pizzas.mock";
-import { Pizza } from "@/features/pizzas/mock/interfaces/pizza.interface";
+import { DetalhePizza } from "@/features/pizzas/interfaces/pizza.interface";
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Pizza | undefined>,
+  res: NextApiResponse<DetalhePizza | undefined>,
 ) {
   const { slug } = req.query;
 

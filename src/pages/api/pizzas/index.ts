@@ -17,15 +17,15 @@ export default function handler(
     },
     {
       slug: "frango-catupiry",
-      nome: "Pizza de Frango com Catupiry",
+      nome: "Pizza Frango com Catupiry",
       descricao: "Frango desfiado com catupiry cremoso.",
       valor: 35,
       tempoEntrega: "45 min",
-      imagem: "/pizzas/frango-catupiry.png",
+      imagem: "/pizzas/frango.png",
     },
     {
       slug: "lombo-bacon",
-      nome: "Pizza de Lombo com Bacon",
+      nome: "Pizza Lombo com Bacon",
       descricao: "Lombo suíno com bacon crocante.",
       valor: 35,
       tempoEntrega: "45 min",

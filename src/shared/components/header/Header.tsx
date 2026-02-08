@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
 
-export function Header() {
+export default function Header() {
+  const usuarioLogado =
+    typeof window !== "undefined" &&
+    Boolean(localStorage.getItem("usuarioLogado"));
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -9,8 +13,16 @@ export function Header() {
           🍕 Pizzaria
         </Link>
 
-        <nav className={styles.actions}>
-          <button className={styles.button}>Entrar</button>
+        <nav>
+          {usuarioLogado ? (
+            <Link href="/perfil" className={styles.link}>
+              Perfil
+            </Link>
+          ) : (
+            <Link href="/login" className={styles.link}>
+              Login
+            </Link>
+          )}
         </nav>
       </div>
     </header>

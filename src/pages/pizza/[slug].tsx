@@ -8,12 +8,15 @@ import {
 } from "@/features/pizzas/services/pizza.service";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { formatCurrency } from "@/shared/utils/formatCurrency.util";
+import { useRouter } from "next/router";
 
 interface DetalhePizzaProps {
   pizza: DetalhePizza;
 }
 
 export default function Detalhe({ pizza }: DetalhePizzaProps) {
+  const router = useRouter();
+
   return (
     <main className={styles.main}>
       <div className={styles.containerImagem}>
@@ -47,7 +50,9 @@ export default function Detalhe({ pizza }: DetalhePizzaProps) {
       </div>
 
       <div className={styles.containerVoltar}>
-        <button className={styles.voltarButton}>Voltar</button>
+        <button className={styles.voltarButton} onClick={() => router.back()}>
+          Voltar
+        </button>
       </div>
     </main>
   );

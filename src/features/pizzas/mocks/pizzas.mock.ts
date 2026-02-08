@@ -24,7 +24,7 @@ export const pizzas: DetalhePizza[] = [
       "Uma combinação clássica e muito querida, feita com frango desfiado bem temperado e uma generosa camada de catupiry, garantindo cremosidade a cada fatia.",
     valor: 35,
     tempoEntrega: "45 min",
-    imagem: "/pizzas/frango-catupiry.png",
+    imagem: "/pizzas/frango.png",
     ingredientes: [
       "Frango desfiado",
       "Catupiry",

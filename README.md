@@ -103,38 +103,43 @@ Para a nomenclatura das classes foi adotado o **padrão BEM (Block Element Modif
 
 O projeto foi organizado seguindo o conceito de organização por feature, facilitando escalabilidade e manutenção.
 
+A pasta `pages` foi mantida com foco apenas nas **rotas da aplicação**, conforme o padrão do Next.js. Nela ficam as páginas que representam entradas diretas da aplicação, além das API Routes.
+
+As regras de negócio, componentes específicos, interfaces e mocks foram organizados dentro da pasta `features`, separando cada funcionalidade da aplicação. Essa abordagem facilita a manutenção e deixa o projeto mais escalável.
+
+A pasta `shared` concentra utilitários e recursos reutilizáveis entre diferentes features, evitando duplicação de código.
+
 ```
 src/
-├── pages/
-│ ├── index.tsx
-│ ├── login.tsx
-│ ├── perfil.tsx
+├── pages/ # Rotas da aplicação (Next.js)
+│ ├── index.tsx # Home - listagem de pizzas (SSG)
+│ ├── login.tsx # Tela de login (CSR)
+│ ├── perfil.tsx # Tela de perfil do usuário (CSR)
 │ ├── pizza/
-│ │ └── [slug].tsx
+│ │ └── [slug].tsx # Detalhe da pizza (ISR)
 │ └── api/
-│   └── pizzas/
-│    ├── index.ts
-│    └── [slug].ts
+│ └── pizzas/ # API Routes simulando backend
+│ ├── index.ts # Listagem de pizzas
+│ └── [slug].ts # Detalhe de uma pizza
 │
 ├── features/
-│ ├── pizzas/
-│ │ ├── components/
-│ │ │ └── CardPizza.tsx
-│ │ ├── services/
-│ │ │ └── pizza.service.ts
-│ │ ├── interfaces/
-│ │ └── mock/
+│ ├── pizzas/ # Funcionalidades relacionadas às pizzas e lógica e estilos da tela de detalhe
+│ │ ├── services/ # Chamadas e regras de acesso aos dados
+│ │ ├── interfaces/ # Tipagens e contratos
+│ │ └── mock/ # Dados mockados
 │ │
-│ ├── login/
-│ ├── perfil/
-│ └── header/
+│ ├── home/ # Lógica e estilos da tela de home
+│ ├── login/ # Lógica e estilos da tela de login
+│ └── perfil/ # Lógica e estilos da tela de perfil
 │
 ├── shared/
-│ └── utils/
-│ └── formatCurrency.util.ts
+│ ├── components/ # Componentes específicos (ex: Header)
+│ │ └── header/ # Componente de cabeçalho da aplicaçãos
+│ └── utils/ # Funções utilitárias reutilizáveis
+│   └── formatCurrency.util.ts
 │
 └── styles/
-└── globals.css
+│ └── globals.css # Estilos globais
 ```
 
 ## Scripts Disponíveis

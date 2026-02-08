@@ -1,4 +1,4 @@
-.main {
+.home__conteudo {
   width: 100%;
   max-width: 1280px;
   padding: 24px;
@@ -6,27 +6,26 @@
   flex-direction: column;
 }
 
-.grid {
+.home__lista {
   margin-top: 100px;
   display: grid;
   gap: 24px;
 }
 
-/* Responsividade */
 @media (min-width: 640px) {
-  .grid {
+  .home__lista {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 768px) {
-  .grid {
+  .home__lista {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .grid {
+  .home__lista {
     grid-template-columns: repeat(4, 1fr);
   }
 }

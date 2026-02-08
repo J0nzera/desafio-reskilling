@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Pizza } from "../interfaces/pizza.interface";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { formatCurrency } from "@/shared/utils/formatCurrency.util";
 import styles from "./CardPizza.module.css";
 import Link from "next/link";
+import { Pizza } from "@/features/pizzas/interfaces/pizza.interface";
 
 type Props = {
   pizza: Pizza;
@@ -12,26 +12,30 @@ type Props = {
 export function CardPizza({ pizza }: Props) {
   return (
     <Link href={`/pizza/${pizza.slug}`}>
-      <div className={styles.card}>
+      <div className={styles.cardPizza}>
         <Image
           src={pizza.imagem}
           alt={pizza.nome}
           width={200}
           height={200}
-          className={styles.image}
+          className={styles.cardPizza__imagem}
         />
 
-        <div className={styles.content}>
-          <p className={styles.name}>{pizza.nome}</p>
+        <div className={styles.cardPizza__conteudo}>
+          <p className={styles.cardPizza__nome}>{pizza.nome}</p>
 
-          <div className={styles.timeContainer}>
-            <ClockIcon className={styles.timeIcon} />
-            <span className={styles.timeText}>{pizza.tempoEntrega}</span>
+          <div className={styles.cardPizza__tempo}>
+            <ClockIcon className={styles.cardPizza__iconeTempo} />
+            <span className={styles.cardPizza__textoTempo}>
+              {pizza.tempoEntrega}
+            </span>
           </div>
 
-          <p className={styles.description}>{pizza.descricao}</p>
+          <p className={styles.cardPizza__descricao}>{pizza.descricao}</p>
 
-          <span className={styles.price}>{formatCurrency(pizza.valor)}</span>
+          <span className={styles.cardPizza__preco}>
+            {formatCurrency(pizza.valor)}
+          </span>
         </div>
       </div>
     </Link>

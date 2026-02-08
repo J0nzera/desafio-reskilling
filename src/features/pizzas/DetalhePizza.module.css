@@ -1,12 +1,12 @@
-.main {
+.pizzaDetalhe {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-.containerImagem {
-  margin-top: 72px;
+.pizzaDetalhe__imagemContainer {
+  margin-top: 60px;
   position: relative;
   height: 300px;
   margin-left: -24px;
@@ -14,80 +14,84 @@
   overflow: hidden;
 }
 
-.containerInfo {
+.pizzaDetalhe__imagem {
+  object-fit: cover;
+}
+
+.pizzaDetalhe__info {
   margin-top: 24px;
   margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  .nomePizza {
-    color: #000;
-    font-weight: 700;
-    font-size: 18px;
-  }
-
-  .containerTempo {
-    display: flex;
-    align-items: center;
-
-    .timeIcon {
-      width: 20px;
-      height: 20px;
-      color: #16a34a;
-    }
-
-    .timeText {
-      font-size: 12px;
-      font-weight: 600;
-      color: #16a34a;
-      margin-left: 4px;
-    }
-  }
 }
 
-.price {
+.pizzaDetalhe__nome {
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.pizzaDetalhe__tempo {
+  display: flex;
+  align-items: center;
+}
+
+.pizzaDetalhe__tempoIcone {
+  width: 20px;
+  height: 20px;
+  color: #16a34a;
+}
+
+.pizzaDetalhe__tempoTexto {
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a34a;
+  margin-left: 4px;
+}
+
+.pizzaDetalhe__preco {
   font-size: 16px;
   font-weight: bold;
   color: #000;
 }
 
-.containerDescricao {
+.pizzaDetalhe__descricaoContainer {
   margin-top: 24px;
-
-  .descricao {
-    font-size: 14px;
-    color: #000;
-  }
 }
 
-.containerIngredientes {
-  margin-top: 24px;
-  margin-bottom: 110px;
-
-  .tituloIngredientes {
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 12px;
-  }
-
-  .listaIngredientes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-
-    .ingrediente {
-      background-color: #b8d8d6;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      color: #000;
-    }
-  }
+.pizzaDetalhe__descricao {
+  font-size: 14px;
+  color: #000;
 }
 
-.containerVoltar {
+.pizzaDetalhe__ingredientes {
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.pizzaDetalhe__ingredientesTitulo {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.pizzaDetalhe__ingredientesLista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pizzaDetalhe__ingrediente {
+  background-color: #b8d8d6;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #000;
+}
+
+.pizzaDetalhe__voltarMobile {
   position: fixed;
   bottom: 0px;
   left: 50%;
@@ -100,21 +104,69 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
+}
 
-  .voltarButton {
-    background-color: #b8d8d6;
-    color: #000;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    width: 300px;
-    height: 50px;
-    cursor: pointer;
+.pizzaDetalhe__voltarBotao {
+  background-color: #b8d8d6;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+}
 
-    &:hover {
-      background-color: #d1d5db;
-    }
+.pizzaDetalhe__voltarBotao:hover {
+  background-color: #d1d5db;
+}
+
+.pizzaDetalhe__voltarDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .pizzaDetalhe {
+    display: flex;
+    gap: 48px;
+  }
+
+  .pizzaDetalhe__imagemContainer {
+    flex: 0 0 420px;
+    height: 420px;
+    margin-top: 96px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 16px;
+  }
+
+  .pizzaDetalhe__info,
+  .pizzaDetalhe__preco,
+  .pizzaDetalhe__descricaoContainer,
+  .pizzaDetalhe__ingredientes {
+    flex: 1;
+  }
+
+  .pizzaDetalhe__info {
+    margin-top: 96px;
+  }
+
+  .pizzaDetalhe__preco {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .pizzaDetalhe__ingredientes {
+    margin-bottom: 70px;
+  }
+
+  .pizzaDetalhe__voltarMobile {
+    display: none;
+  }
+
+  .pizzaDetalhe__voltarDesktop {
+    display: block;
   }
 }

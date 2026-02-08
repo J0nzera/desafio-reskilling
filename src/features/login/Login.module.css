@@ -1,11 +1,11 @@
-.main {
+.login {
   min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form {
+.login__formulario {
   width: 100%;
   max-width: 360px;
   background: white;
@@ -18,19 +18,19 @@
   gap: 12px;
 }
 
-.titulo {
+.login__titulo {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
 }
 
-.input {
+.login__input {
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
 
-.botaoEntrar {
+.login__botaoEntrar {
   margin-top: 8px;
   padding: 12px;
   border-radius: 8px;

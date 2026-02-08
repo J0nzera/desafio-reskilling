@@ -15,6 +15,7 @@ interface Usuario {
 
 export default function PerfilPage() {
   const router = useRouter();
+
   const [usuario, setUsuario] = useState<Usuario | null>(() => {
     if (typeof window === "undefined") {
       return null;
@@ -53,7 +54,6 @@ export default function PerfilPage() {
 
   function salvarPerfil() {
     localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-
     alert("Perfil salvo com sucesso!");
   }
 
@@ -67,71 +67,75 @@ export default function PerfilPage() {
   }
 
   return (
-    <main className={styles.main}>
-      <div className={styles.card}>
-        <h1>Meu Perfil</h1>
+    <main className={styles.perfil}>
+      <div className={styles.perfil__card}>
+        <h1 className={styles.perfil__titulo}>Meu Perfil</h1>
 
-        <label className={styles.label}>
+        <label className={styles.perfil__campo}>
           Nome
           <input
-            className={styles.input}
+            className={styles.perfil__input}
             value={usuario.nome}
             onChange={(e) => atualizarCampo("nome", e.target.value)}
           />
         </label>
 
-        <label className={styles.label}>
+        <label className={styles.perfil__campo}>
           Email
           <input
-            className={styles.input}
+            className={styles.perfil__input}
             value={usuario.email}
             onChange={(e) => atualizarCampo("email", e.target.value)}
           />
         </label>
 
-        <h2>Endereço</h2>
+        <h2 className={styles.perfil__subtitulo}>Endereço</h2>
 
-        <label className={styles.label}>
+        <label className={styles.perfil__campo}>
           Rua
           <input
-            className={styles.input}
+            className={styles.perfil__input}
             value={usuario.endereco.rua}
             onChange={(e) => atualizarEndereco("rua", e.target.value)}
           />
         </label>
 
-        <label className={styles.label}>
+        <label className={styles.perfil__campo}>
           Número
           <input
-            className={styles.input}
+            className={styles.perfil__input}
             value={usuario.endereco.numero}
             onChange={(e) => atualizarEndereco("numero", e.target.value)}
           />
         </label>
 
-        <label className={styles.label}>
+        <label className={styles.perfil__campo}>
           Bairro
           <input
-            className={styles.input}
+            className={styles.perfil__input}
             value={usuario.endereco.bairro}
             onChange={(e) => atualizarEndereco("bairro", e.target.value)}
           />
         </label>
 
-        <label className={styles.label}>
+        <label className={styles.perfil__campo}>
           Cidade
           <input
-            className={styles.input}
+            className={styles.perfil__input}
             value={usuario.endereco.cidade}
             onChange={(e) => atualizarEndereco("cidade", e.target.value)}
           />
         </label>
 
-        <div className={styles.botoes}>
-          <button onClick={salvarPerfil} className={styles.button}>
+        <div className={styles.perfil__botoes}>
+          <button onClick={salvarPerfil} className={styles.perfil__botao}>
             Salvar
           </button>
-          <button onClick={sair} className={`${styles.button} ${styles.sair}`}>
+
+          <button
+            onClick={sair}
+            className={`${styles.perfil__botao} ${styles.perfil__botaoSair}`}
+          >
             Logout
           </button>
         </div>

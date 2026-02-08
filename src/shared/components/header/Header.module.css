@@ -8,7 +8,7 @@
   z-index: 100;
 }
 
-.container {
+.header__container {
   max-width: 1024px;
   margin: 0 auto;
   padding: 16px 24px;
@@ -18,20 +18,20 @@
   justify-content: space-between;
 }
 
-.logo {
+.header__logo {
   font-size: 18px;
   font-weight: bold;
   color: #000;
   text-decoration: none;
 }
 
-.actions {
+.header__acoes {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.button {
+.header__botao {
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
@@ -40,8 +40,9 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.button:hover {
+.header__botao:hover {
   opacity: 0.9;
 }

@@ -13,39 +13,68 @@ export default function DetalhePizzaPage({ pizza }: DetalhePizzaProps) {
   const router = useRouter();
 
   return (
-    <main className={styles.main}>
-      <div className={styles.containerImagem}>
-        <Image src={pizza.imagem} alt={pizza.nome} fill priority />
+    <main className={styles.pizzaDetalhe}>
+      <div className={styles.pizzaDetalhe__imagemContainer}>
+        <Image
+          src={pizza.imagem}
+          alt={pizza.nome}
+          fill
+          className={styles.pizzaDetalhe__imagem}
+        />
       </div>
 
-      <div className={styles.containerInfo}>
-        <h1 className={styles.nomePizza}>{pizza.nome}</h1>
+      <div>
+        <div className={styles.pizzaDetalhe__info}>
+          <h1 className={styles.pizzaDetalhe__nome}>{pizza.nome}</h1>
 
-        <div className={styles.containerTempo}>
-          <ClockIcon className={styles.timeIcon} />
-          <span className={styles.timeText}>{pizza.tempoEntrega}</span>
+          <div className={styles.pizzaDetalhe__tempo}>
+            <ClockIcon className={styles.pizzaDetalhe__tempoIcone} />
+            <span className={styles.pizzaDetalhe__tempoTexto}>
+              {pizza.tempoEntrega}
+            </span>
+          </div>
+        </div>
+
+        <span className={styles.pizzaDetalhe__preco}>
+          {formatCurrency(pizza.valor)}
+        </span>
+
+        <div className={styles.pizzaDetalhe__descricaoContainer}>
+          <p className={styles.pizzaDetalhe__descricao}>{pizza.descricao}</p>
+        </div>
+
+        <div className={styles.pizzaDetalhe__ingredientes}>
+          <h2 className={styles.pizzaDetalhe__ingredientesTitulo}>
+            Ingredientes
+          </h2>
+
+          <ul className={styles.pizzaDetalhe__ingredientesLista}>
+            {pizza.ingredientes.map((ingrediente) => (
+              <li
+                key={ingrediente}
+                className={styles.pizzaDetalhe__ingrediente}
+              >
+                {ingrediente}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.pizzaDetalhe__voltarDesktop}>
+          <button
+            className={styles.pizzaDetalhe__voltarBotao}
+            onClick={() => router.back()}
+          >
+            Voltar
+          </button>
         </div>
       </div>
 
-      <span className={styles.price}>{formatCurrency(pizza.valor)}</span>
-
-      <div className={styles.containerDescricao}>
-        <p className={styles.descricao}>{pizza.descricao}</p>
-      </div>
-
-      <div className={styles.containerIngredientes}>
-        <h2 className={styles.tituloIngredientes}>Ingredientes</h2>
-        <ul className={styles.listaIngredientes}>
-          {pizza.ingredientes.map((ingrediente) => (
-            <li key={ingrediente} className={styles.ingrediente}>
-              {ingrediente}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className={styles.containerVoltar}>
-        <button className={styles.voltarButton} onClick={() => router.back()}>
+      <div className={styles.pizzaDetalhe__voltarMobile}>
+        <button
+          className={styles.pizzaDetalhe__voltarBotao}
+          onClick={() => router.back()}
+        >
           Voltar
         </button>
       </div>

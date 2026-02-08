@@ -21,25 +21,24 @@ export default function LoginPage() {
     };
 
     localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-
     router.push("/perfil");
   }
 
   return (
-    <main className={styles.main}>
+    <main className={styles.login}>
       <form
-        className={styles.form}
+        className={styles.login__formulario}
         onSubmit={(event) => {
           event.preventDefault();
           realizarLogin();
         }}
       >
-        <h1 className={styles.titulo}>Entrar</h1>
+        <h1 className={styles.login__titulo}>Entrar</h1>
 
         <input
           type="email"
           placeholder="Email"
-          className={styles.input}
+          className={styles.login__input}
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           required
@@ -48,13 +47,13 @@ export default function LoginPage() {
         <input
           type="password"
           placeholder="Senha"
-          className={styles.input}
+          className={styles.login__input}
           value={senha}
           onChange={(event) => setSenha(event.target.value)}
           required
         />
 
-        <button className={styles.botaoEntrar} type="submit">
+        <button className={styles.login__botaoEntrar} type="submit">
           Entrar
         </button>
       </form>

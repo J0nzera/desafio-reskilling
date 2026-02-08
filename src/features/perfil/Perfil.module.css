@@ -1,11 +1,11 @@
-.main {
+.perfil {
   min-height: calc(100vh - 64px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card {
+.perfil__card {
   width: 100%;
   max-width: 420px;
   background: white;
@@ -16,26 +16,37 @@
   gap: 12px;
 }
 
-.label {
+.perfil__titulo {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.perfil__subtitulo {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.perfil__campo {
   display: flex;
   flex-direction: column;
   font-size: 14px;
   gap: 4px;
 }
 
-.input {
+.perfil__input {
   padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.botoes {
+.perfil__botoes {
   display: flex;
   gap: 12px;
   margin-top: 12px;
 }
 
-.button {
+.perfil__botao {
   flex: 1;
   padding: 12px;
   border-radius: 8px;
@@ -46,7 +57,7 @@
   cursor: pointer;
 }
 
-.sair {
+.perfil__botaoSair {
   border: 2px solid #b8d8d6;
   background-color: transparent;
 }

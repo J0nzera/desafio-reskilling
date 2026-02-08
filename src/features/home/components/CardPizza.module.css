@@ -1,4 +1,4 @@
-.card {
+.cardPizza {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -8,47 +8,47 @@
   cursor: pointer;
 }
 
-.image {
+.cardPizza__imagem {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.content {
+.cardPizza__conteudo {
   padding: 8px;
 }
 
-.name {
+.cardPizza__nome {
   font-size: 14px;
   color: #000;
 }
 
-.timeContainer {
+.cardPizza__tempo {
   display: flex;
   align-items: center;
   margin: 8px 0;
 }
 
-.timeIcon {
+.cardPizza__iconeTempo {
   width: 20px;
   height: 20px;
   color: #16a34a;
 }
 
-.timeText {
+.cardPizza__textoTempo {
   font-size: 12px;
   font-weight: 600;
   color: #16a34a;
   margin-left: 4px;
 }
 
-.description {
+.cardPizza__descricao {
   font-size: 12px;
   color: #000;
   margin-bottom: 8px;
 }
 
-.price {
+.cardPizza__preco {
   font-size: 14px;
   font-weight: bold;
   color: #000;

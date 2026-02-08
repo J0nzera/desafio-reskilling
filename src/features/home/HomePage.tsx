@@ -8,9 +8,9 @@ interface HomeProps {
 
 export default function HomePage({ pizzas }: HomeProps) {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <div className={styles.grid}>
+    <div className={styles.home}>
+      <main className={styles.home__conteudo}>
+        <div className={styles.home__lista}>
           {pizzas.map((pizza) => (
             <CardPizza key={pizza.slug} pizza={pizza} />
           ))}

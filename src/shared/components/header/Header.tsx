@@ -13,15 +13,11 @@ export default function Header() {
           🍕 Pizzaria
         </Link>
 
-        <nav className={styles.header__acoes}>
+        <nav>
           {usuarioLogado ? (
-            <Link href="/perfil" className={styles.header__botao}>
-              Perfil
-            </Link>
+            <Link href="/perfil">Perfil</Link>
           ) : (
-            <Link href="/login" className={styles.header__botao}>
-              Login
-            </Link>
+            <Link href="/login">Login</Link>
           )}
         </nav>
       </div>

@@ -24,25 +24,3 @@
   color: #000;
   text-decoration: none;
 }
-
-.header__acoes {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header__botao {
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: none;
-  background-color: #b8d8d6;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.header__botao:hover {
-  opacity: 0.9;
-}

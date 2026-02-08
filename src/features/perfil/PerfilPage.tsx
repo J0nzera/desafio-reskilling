@@ -17,10 +17,6 @@ export default function PerfilPage() {
   const router = useRouter();
 
   const [usuario, setUsuario] = useState<Usuario | null>(() => {
-    if (typeof window === "undefined") {
-      return null;
-    }
-
     const usuarioSalvo = localStorage.getItem("usuarioLogado");
     return usuarioSalvo ? JSON.parse(usuarioSalvo) : null;
   });

@@ -1,40 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Mini Aplicação Fullstack – Pizzaria (Next.js)
 
-## Getting Started
+## Sobre o Projeto
 
-First, run the development server:
+Este projeto foi desenvolvido como **trabalho final de certificação**, utilizando Next.js para consolidar os conceitos aprendidos durante as capacitações de HTML, CSS, JavaScript, TypeScript, React e Node.js.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+A aplicação simula uma pizzaria, contendo:
+
+- Visualizar uma listagem de pizzas
+- Acessar o detalhe de cada produto
+- Realizar um login simples
+- Editar seus dados em uma página de perfil
+
+## Telas da Aplicação
+
+### Home – Listagem de Pizzas (SSG)
+
+Exibe uma listagem estática de pizzas
+
+Cada pizza apresenta:
+
+- Nome
+- Descrição curta
+- Imagem
+- Tempo de entrega
+- Preço
+
+Os dados são obtidos via **SSG (Static Site Generation)**, conforme exigido no enunciado.
+
+Como o conteúdo apresentado é exatamente o mesmo para qualquer usuário que acessar a aplicação, independentemente de quem esteja acessando, o HTML entregue pela Home é sempre igual, já que se trata apenas de uma vitrine de produtos e não depende de login ou de qualquer informação do usuário.
+
+Com o SSG, essa página é gerada uma única vez no momento do build da aplicação e reutilizada para todos os acessos. Isso deixa o carregamento mais rápido e simplifica a lógica da página, já que não é necessário refazer chamadas ou gerar o conteúdo a cada requisição.
+
+### Detalhe da Pizza (ISR)
+
+Página acessada via rota dinâmica (/pizza/[slug])
+
+Exibe informações completas da pizza:
+
+- Nome
+- Descrição completa
+- Ingredientes
+- Preço
+- Tempo de entrega
+
+Utiliza **ISR (Incremental Static Regeneration)** com `getStaticPaths` e `getStaticProps`
+
+**Motivo da escolha (ISR):**
+
+O funcionamento do ISR fez sentido para este projeto da seguinte forma: quando um usuário acessa pela primeira vez o detalhe de uma pizza específica, o Next.js executa as chamadas necessárias, gera a página e armazena esse resultado em cache. A partir desse momento, quando outros usuários acessarem a mesma rota, o conteúdo é servido diretamente desse cache, sem a necessidade de refazer a requisição a cada acesso.
+
+Isso traz um ganho claro de performance, já que evita chamadas desnecessárias, principalmente em um cenário onde o conteúdo exibido é basicamente informativo. No contexto da aplicação, os dados da pizza não mudam constantemente, então não faz sentido recalcular essa página a todo momento. Ao mesmo tempo, o uso do `revalidate` permite que, caso alguma informação seja alterada no futuro, a página seja atualizada automaticamente após um determinado período.
+
+Dessa forma, o ISR se encaixa bem no projeto por equilibrar performance e atualização de dados, sendo uma estratégia muito comum em aplicações do tipo e-commerce.
+
+### Login e Perfil do Usuário (CSR)
+
+As páginas de Login e Perfil utilizam **Client Side Rendering (CSR)**, conforme exigido no enunciado.
+
+O login é apenas uma simulação de autenticação leve, utilizando estado local e `localStorage`. Após o login, os dados do usuário ficam armazenados no navegador e são utilizados na página de perfil.
+
+Na página de perfil, o usuário pode:
+
+- Visualizar seus dados,
+- Editar informações pessoais,
+- Editar o endereço,
+- Salvar as alterações,
+- Realizar logout.
+
+Como essas informações são específicas de cada usuário e dependem diretamente do estado da aplicação no navegador, o CSR é a abordagem mais simples e adequada para esse cenário.
+
+## API Routes
+
+O projeto possui API Routes internas, simulando um backend:
+
+**Endpoints criados:**
+
+- GET /api/pizzas
+  - Retorna a listagem de pizzas
+
+- GET /api/pizzas/[slug]
+  - Retorna o detalhe de uma pizza específica
+
+Os dados são **mockados**, apenas para fins de simulação e aprendizado.
+
+## Estilização
+
+A estilização foi feita utilizando **CSS Modules**. Essa abordagem permite manter os estilos isolados por componente, evitando conflitos de classes.
+
+O layout foi desenvolvido seguindo o conceito de mobile first, com ajustes específicos para desktop utilizando media queries. Foram utilizados Flexbox e CSS Grid, conforme a necessidade de cada tela.
+
+Para a nomenclatura das classes foi adotado o **padrão BEM (Block Element Modifier)**, o que ajuda a deixar os estilos mais organizados e fáceis de entender conforme a aplicação cresce.
+
+**Exemplo:**
+
+```
+.cardPizza
+.cardPizza__imagem
+.cardPizza__conteudo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura de Pastas
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+O projeto foi organizado seguindo o conceito de organização por feature, facilitando escalabilidade e manutenção.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+src/
+├── pages/
+│ ├── index.tsx
+│ ├── login.tsx
+│ ├── perfil.tsx
+│ ├── pizza/
+│ │ └── [slug].tsx
+│ └── api/
+│   └── pizzas/
+│    ├── index.ts
+│    └── [slug].ts
+│
+├── features/
+│ ├── pizzas/
+│ │ ├── components/
+│ │ │ └── CardPizza.tsx
+│ │ ├── services/
+│ │ │ └── pizza.service.ts
+│ │ ├── interfaces/
+│ │ └── mock/
+│ │
+│ ├── login/
+│ ├── perfil/
+│ └── header/
+│
+├── shared/
+│ └── utils/
+│ └── formatCurrency.util.ts
+│
+└── styles/
+└── globals.css
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Scripts Disponíveis
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```
+npm run dev # roda o projeto em ambiente de desenvolvimento
+npm run build # gera o build de produção
+npm run start # roda o build gerado
+```

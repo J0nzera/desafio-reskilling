@@ -107,8 +107,6 @@ A pasta `pages` foi mantida com foco apenas nas **rotas da aplicação**, confor
 
 As regras de negócio, componentes específicos, interfaces e mocks foram organizados dentro da pasta `features`, separando cada funcionalidade da aplicação. Essa abordagem facilita a manutenção e deixa o projeto mais escalável.
 
-A pasta `shared` concentra utilitários e recursos reutilizáveis entre diferentes features, evitando duplicação de código.
-
 ```
 src/
 ├── pages/ # Rotas da aplicação (Next.js)

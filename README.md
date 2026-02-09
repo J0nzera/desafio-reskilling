@@ -140,6 +140,10 @@ src/
 │ └── globals.css # Estilos globais
 ```
 
+## Qualidade de Código
+
+O projeto utiliza ESLint para garantir boas práticas de desenvolvimento, e Prettier para padronização automática da formatação do código.
+
 ## Scripts Disponíveis
 
 ```
